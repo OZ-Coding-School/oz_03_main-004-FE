@@ -21,6 +21,7 @@ module.exports = {
       minHeight: rem0_2000,
       spacing: rem0_2000,
       colors: {
+        basic: '#DBB169',
         primary: '#8B4513', 
         strong: '#421D06',
         blue: '#3366FE',
@@ -42,7 +43,8 @@ module.exports = {
       screens: {
         hwide: {max:'2260px'},
         wide: { max: '1920px' },
-        middle: { max: '1420px' },
+        middle: { max: '1600px' },
+        1440: { max: '1440px' },
         tablet: { max: '1199px' },
         mobile: { max: '767px' },
       },
@@ -58,11 +60,26 @@ module.exports = {
         swell: {
           '0%, 100%': { transform: 'translate(0, -30px)' },
           '50%': { transform: 'translate(0, 5px)' },
+        }, 
+        twinkle: {
+          '0%': { transform: 'rotateY(0deg)' },
+          '100%': { transform: 'rotateY(360deg)' },
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        'slide-down': {
+          '100%': { transform: 'translateY(0%)', opacity: '1' },
+          '0%': { transform: 'translateY(-50%)', opacity: '0' },
         },
       },
       animation: {
         wave: 'wave 7s linear infinite',
         swell: 'swell 4s linear infinite',
+        twinkle: 'twinkle 3s linear infinite',
+        'slide-down': 'slide-down 0.5s ease-in-out',
+        'slide-up': 'slide-up 0.3s ease-in-out',
       },
       aspectRatio: {
         '12/5': '12 / 5',

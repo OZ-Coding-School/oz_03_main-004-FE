@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../../components/layout/footer';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const Section1 = () => {
             <div className='mx-auto flex h-full w-1400 flex-col items-center justify-center'>
                 <div className='flex w-full items-center justify-between tablet:flex-col'>
                     <div className='z-30'>
-                        <img src='../../../public/landing/section1.svg' alt='' />
+                        <img src='/images/section1.png' alt='' />
                     </div>
 
                     <div className='z-20 tablet:flex tablet:flex-col tablet:items-center tablet:justify-center'>
@@ -31,13 +31,13 @@ const Section1 = () => {
                     </div>
                 </div>
                 <img
-                    src='../../../public/landing/pipe.svg'
+                    src='/images/pipe.png'
                     alt=''
                     className='absolute right-[-200px] z-10 w-1500 wide:w-1200 tablet:hidden'
                 />
-                <div class='relative bottom-[-230px] left-0 h-5 w-full tablet:hidden'>
-                    <div class="absolute left-0 top-[-198px] h-198 w-[6400px] animate-wave bg-[url('../../../public/landing/wave2.svg')] bg-repeat-x"></div>
-                    <div class="absolute left-0 top-[-168px] h-198 w-[6400px] animate-swell bg-[url('../../../public/landing/wave.svg')] bg-repeat-x opacity-100"></div>
+                <div className='relative bottom-[-230px] left-0 h-5 w-full tablet:hidden'>
+                    <div className="absolute left-0 top-[-198px] h-198 w-[6400px] animate-wave bg-[url('/images/wave2.png')] bg-repeat-x"></div>
+                    <div className="absolute left-0 top-[-168px] h-198 w-[6400px] animate-swell bg-[url('/images/wave.png')] bg-repeat-x opacity-100"></div>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@ const Section2 = () => {
                 </div>
 
                 <div className='tablet:w-300'>
-                    <img src='../../../public/landing/section2.svg' alt='' />
+                    <img src='/images/section2.png' alt='' />
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@ const Section3 = () => {
         <div className='flex h-512 w-full items-center justify-center overflow-hidden px-10'>
             <div className='mx-auto flex h-full w-1400 items-center justify-between tablet:flex-col'>
                 <div className='tablet:w-450'>
-                    <img src='../../../public/landing/section3.svg' alt='' />
+                    <img src='/images/section3.png' alt='' />
                 </div>
                 <div className='flex flex-col items-center'>
                     <h1 className='text-40 font-bold text-strong tablet:text-32'>Verified User Reviews</h1>
@@ -96,6 +96,14 @@ const Section3 = () => {
 };
 
 const Landing = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const accessToken = localStorage.getItem('accessToken');
+        if (accessToken) {
+            navigate('/home');
+        }
+    }, [navigate]);
     return (
         <>
             <Section1 />
